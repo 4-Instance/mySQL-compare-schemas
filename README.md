@@ -9,5 +9,6 @@ There are two main scripts database_diff that will do a simple compare to look f
 This covers tables, routines and views. It contains all the important table and columns diffs. If also looks at the routines and views at code level to indicate differences.
 
 The second script is to see data differences within a reference tables. This can be modified to check your personal settings tables.
+I have had to hard code the DEV and UAT rather that the environment variables. The @sourcedb seems to cause problems.
 
 It comes with no warrenty but I find it so useful I have decided to share it out.
