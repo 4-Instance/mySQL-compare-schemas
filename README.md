@@ -6,5 +6,8 @@ The script requires access to MySQL information schema to work and any database 
 I recommend MySQLWorkbence to design the database and generate diffs files.
 
 There are two main scripts database_diff that will do a simple compare to look for differences between a SOURCE and TARGET.
+This covers tables, routines and views. It contains all the important table and columns diffs. If also looks at the routines and views at code level to indicate differences.
 
 The second script is to see data differences within a reference tables. This can be modified to check your personal settings tables.
+
+It comes with no warrenty but I find it so useful I have decided to share it out.
