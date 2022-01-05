@@ -1,0 +1,33 @@
+This is a standard set of tables I use to store settings and domains. I have included a simple example
+
+A simple settings table:
+CREATE TABLE `reference` (
+  `ref_id` int(11) NOT NULL AUTO_INCREMENT,
+  `ref_description` varchar(45) NOT NULL,
+  `ref_value` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`ref_id`));
+
+ref_id  ref_description ref_value
+1       State           LIVE
+2       Emails          ACTIVE
+5	      Country	        null
+
+
+A more detailed table to allow multiple values to be stored against a settion
+CREATE TABLE `reference_list` (
+  `rfl_id` int(11) NOT NULL AUTO_INCREMENT,
+  `rfl_ref_id` int(11) NOT NULL,
+  `rfl_description` varchar(255) NOT NULL,
+  `rfl_value` varchar(45) NOT NULL,
+  PRIMARY KEY (`rfl_id`),
+  KEY `FK_RFL_REF_IDX` (`rfl_ref_id`),
+  CONSTRAINT `FK_FRL_REF_ID` FOREIGN KEY (`rfl_ref_id`) REFERENCES `reference` (`ref_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+rfl_id  rfl_ref_id  rfl_description rfl_value
+27	    5         	UK	            UK
+67	    5	          USA	            USA
+68	    5	          Germany	        GERMANY
+69	    5	          France	        FRANCE
+70	    5	          Japan           JAPAN
+71	    5	          Italy	          ITALY
